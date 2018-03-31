@@ -18,6 +18,14 @@ class Film
           RETURNING id"
     values = [@title, @year, @rating]
     result = SqlRunner.run(sql, values)
-    return result.first()["id"].to_i
+    @id = result.first["id"].to_i
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM films
+          WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Film.new(result.first)
   end
 end

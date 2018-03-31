@@ -16,6 +16,14 @@ class Director
           RETURNING id"
     values = [@name]
     result = SqlRunner.run(sql, values)
-    return result.first()["id"].to_i
+    @id = result.first()["id"].to_i
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM directors
+          WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Director.new(result.first)
   end
 end
