@@ -36,3 +36,6 @@ require_relative("../models/film_director")
 #
 # j3cstng = Film_Director.new({"film_id" => j3.id,"director_id" => jj.id})
 # j3cstng.save()
+
+film = Film.find(1)
+p film.get_directors()
