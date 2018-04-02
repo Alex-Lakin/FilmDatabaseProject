@@ -22,7 +22,7 @@ post '/films' do
   redirect to("/films/all")
 end
 
-# shows 1 spesific film
+# shows 1 specific film
 get "/films/:id" do
   @film = Film.find(params["id"].to_i)
   erb( :"films/show" )
