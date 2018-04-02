@@ -36,17 +36,3 @@ require_relative("../models/film_director")
 #
 # j3cstng = Film_Director.new({"film_id" => j3.id,"director_id" => jj.id})
 # j3cstng.save()
-
-jphash = {"title" => "Jurassic Park: the final battle",
-  "year" => "2034",
-  "rating" => "1"}
-jp = Film.new(jphash)
-jp.save()
-
-sp = Director.find(1)
-jj = Director.find(2)
-
-jpcstng = Film_Director.new({"film_id" => jp.id,"director_id" => sp.id})
-jpcstng.save()
-jpcstng2 = Film_Director.new({"film_id" => jp.id,"director_id" => jj.id})
-jpcstng2.save()

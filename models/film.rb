@@ -45,9 +45,7 @@ class Film
           WHERE f_d.film_id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values)
-    to_return = result.map { |dir| Director.new(dir) }
-    p result
-    return to_return
+    return result.map { |dir| Director.new(dir) }
   end
 
 end

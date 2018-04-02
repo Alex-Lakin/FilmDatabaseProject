@@ -1,0 +1,28 @@
+<h1>Add new Film</h1>
+
+<form method="post" action="/films">
+  <label for="title">Title: </label>
+  <input id="title" type="text" name="title"/>
+
+  <label for="year">Year: </label>
+  <input id="year" type="text" name="year"/>
+
+  <label for="director">Director:</label>
+  <select id="director" name="director_id">
+  <% @director.each do |dir| %>
+    <option value="<%= dir.id %>"> <%= dir.name %> </option>
+  <% end %>
+  </select>
+  <a href="/director/new"> Add New Director </a>
+
+  <label for="r">Rating:</label>
+  <select id="r" name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <input type="submit" value="Add Film">
+</form>
