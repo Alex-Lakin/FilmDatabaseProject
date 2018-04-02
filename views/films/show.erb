@@ -25,3 +25,7 @@
 </form>
 
 <h5><%= @film.rating %></h5>
+
+<form method="post" action="/films/<%=@film.id%>/delete">
+<input type= "submit" value="Delete" />
+</form>

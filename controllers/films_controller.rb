@@ -40,3 +40,10 @@ get "/films/:id" do
   @director = Director.all()
   erb( :"films/show" )
 end
+
+# delete film
+post '/films/:id/delete' do
+  film = Film.find(params['id'])
+  film.delete
+  redirect to '/films/all'
+end
