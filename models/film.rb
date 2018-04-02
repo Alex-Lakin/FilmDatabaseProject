@@ -48,4 +48,13 @@ class Film
     return result.map { |dir| Director.new(dir) }
   end
 
+  # update
+  def update()
+    sql = "UPDATE films
+          SET (title,year,rating) = ($1,$2,$3)
+          WHERE id = $4"
+    values = [@title, @year, @rating,@id]
+    SqlRunner.run(sql,values)
+  end
+
 end

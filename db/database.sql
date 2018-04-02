@@ -17,6 +17,6 @@ CREATE TABLE directors(
 
 CREATE TABLE films_directors(
   id SERIAL8 PRIMARY KEY,
-  film_id INT8 REFERENCES films(id),
-  director_id INT8 REFERENCES directors(id)
+  film_id INT8 REFERENCES films(id) ON DELETE CASCADE,
+  director_id INT8 REFERENCES directors(id) ON DELETE CASCADE
 );
