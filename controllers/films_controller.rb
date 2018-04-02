@@ -11,7 +11,6 @@ end
 
 # shows add new film screen
 get "/films/new" do
-  @director = Director.all()
   erb( :"films/new" )
 end
 
@@ -19,11 +18,12 @@ end
 post '/films' do
   film = Film.new(params)
   film.save
-  redirect to("/films/all")
+  redirect to("/films/#{film.id}")
 end
 
 # shows 1 specific film
 get "/films/:id" do
   @film = Film.find(params["id"].to_i)
+  @director = Director.all()
   erb( :"films/show" )
 end

@@ -8,4 +8,19 @@
 <h4><%= dir.name %></h4>
 <% end %>
 
+<form method="post" action="/films_directors">
+  <input type="hidden" value="<%= @film.id %>" name="film_id" />
+
+  <label for="director">Director:</label>
+  <select id="director" name="director_id">
+  <% @director.each do |dir| %>
+    <option value="<%= dir.id %>"> <%= dir.name %> </option>
+  <% end %>
+  </select>
+
+  <a href="/director/new?film_id=<%=@film.id%>"> Add New Director </a>
+
+  <input type="submit" value="Add Director">
+</form>
+
 <h5><%= @film.rating %></h5>

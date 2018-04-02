@@ -7,14 +7,6 @@
   <label for="year">Year: </label>
   <input id="year" type="text" name="year"/>
 
-  <label for="director">Director:</label>
-  <select id="director" name="director_id">
-  <% @director.each do |dir| %>
-    <option value="<%= dir.id %>"> <%= dir.name %> </option>
-  <% end %>
-  </select>
-  <a href="/director/new"> Add New Director </a>
-
   <label for="rating">Rating:</label>
   <select id="rating" name="rating">
     <option value="1">1</option>

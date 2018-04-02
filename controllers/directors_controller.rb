@@ -4,6 +4,7 @@ require_relative( '../models/director.rb' )
 
 # shows add new director screen
 get "/director/new" do
+  @film_id = params['film_id']
   erb( :"director/new" )
 end
 
@@ -11,5 +12,5 @@ end
 post '/directors' do
   dir = Director.new(params)
   dir.save
-  redirect to("/films/new")
+  redirect "/films/#{params['film_id']}"
 end

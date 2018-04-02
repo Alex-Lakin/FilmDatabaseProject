@@ -1,6 +1,9 @@
 <h1>Add new Director</h1>
 
 <form method="post" action="/directors">
+
+  <input type="hidden" name="film_id" value="<%=@film_id%>">
+
   <label for="name">Name: </label>
   <input id="name" type="text" name="name"/>
 
