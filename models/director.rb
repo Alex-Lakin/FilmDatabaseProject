@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require_relative( 'film' )
 
 class Director
   attr_accessor :name
@@ -31,5 +32,15 @@ class Director
     values = [id]
     result = SqlRunner.run(sql, values)
     return Director.new(result.first)
+  end
+
+  def get_films()
+    sql = "SELECT f.* FROM films f
+          INNER JOIN films_directors f_d
+          ON f_d.film_id = f.id
+          WHERE f_d.director_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |film| Film.new(film) }
   end
 end

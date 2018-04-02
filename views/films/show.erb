@@ -5,7 +5,7 @@
 <h3>Director(s):</h3>
 
 <% @film.get_directors().each do |dir| %>
-<h4><%= dir.name %></h4>
+<h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
 <% end %>
 
 <form method="post" action="/films_directors">

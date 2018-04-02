@@ -1,0 +1,7 @@
+<h1><%= @director.name %></h1>
+
+<h3>Films:</h3>
+
+<% @director.get_films().each do |film| %>
+<h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+<% end %>

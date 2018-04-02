@@ -14,3 +14,9 @@ post '/directors' do
   dir.save
   redirect "/films/#{params['film_id']}"
 end
+
+# shows all the films by a specific director
+get "/director/:id" do
+  @director = Director.find(params["id"].to_i)
+  erb( :"director/show" )
+end
