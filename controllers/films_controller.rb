@@ -15,6 +15,13 @@ get "/films/new" do
   erb( :"films/new" )
 end
 
+# posts film
+post '/films' do
+  film = Film.new(params)
+  film.save
+  redirect to("/films/all")
+end
+
 # shows 1 spesific film
 get "/films/:id" do
   @film = Film.find(params["id"].to_i)
