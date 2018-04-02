@@ -22,7 +22,7 @@ class Director
   def self.all()
     sql = "SELECT * FROM directors"
     result = SqlRunner.run(sql)
-    return result.map{|dir|Film.new(dir)}
+    return result.map{ |dir| Film.new(dir)}
   end
 
   def self.find(id)

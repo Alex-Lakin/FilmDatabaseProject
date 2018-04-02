@@ -4,8 +4,6 @@
 
 <h3>Director(s):</h3>
 
-<ul>
-  <% @film.get_directors().each do |dir| %>
-  <li><%= dir.name %></li>
-  <% end %>
-</ul>
+<% @film.get_directors().each do |dir| %>
+<h4><%= dir.name %></h4>
+<% end %>
