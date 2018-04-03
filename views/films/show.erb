@@ -14,11 +14,11 @@
   <%link = Film_Director.find(@film.id, dir.id)%>
   <!-- show remove button -->
   <form method="post" action="/films_directors/<%= link.id %>/delete">
-  <input type= "submit" value="Remove" />
+  <input type= "submit" value="Remove"/>
   </form>
 <% end %>
 <!-- add directors form -->
-<form method="post" action="/films_directors">
+<h6><form method="post" action="/films_directors">
   <!-- pass in films id (hidden) -->
   <input type="hidden" value="<%= @film.id %>" name="film_id" />
   <!-- print director label for dropdown -->
@@ -33,7 +33,7 @@
   <a href="/director/new?film_id=<%=@film.id%>"> Add New Director </a>
   <!-- add new director to above list button -->
   <input type="submit" value="Add Director">
-</form>
+</form></h6>
 <!-- print films rating -->
 <h5><%= @film.rating %></h5>
 <!-- show delete button -->

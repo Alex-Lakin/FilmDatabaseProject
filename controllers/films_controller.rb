@@ -41,7 +41,7 @@ get "/films/:id" do
   # grab all directors for add directors dropdown
   @director = Director.all()
   # get film-director link id
-  
+
   # go to films page
   erb( :"films/show" )
 end

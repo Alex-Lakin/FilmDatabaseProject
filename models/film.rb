@@ -25,8 +25,14 @@ class Film
 
 # read
   def self.all()
-    sql = "SELECT * FROM films
-          ORDER BY title"
+    sql = "SELECT id, title, year,
+          CASE
+	          WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
+	          WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)
+	          WHEN(LEFT(title,4)) = 'The ' THEN SUBSTRING(title FROM 5)
+	          ELSE title
+	        END AS title2
+          FROM films ORDER BY title2"
     result = SqlRunner.run(sql)
     return result.map{|film|Film.new(film)}
   end
