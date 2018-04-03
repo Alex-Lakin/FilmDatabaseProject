@@ -10,13 +10,15 @@
 <% @film.get_directors().each do |dir| %>
   <!-- print directors name -->
   <h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
+  <!-- get film-director link id -->
+  <%link = Film_Director.find(@film.id, dir.id)%>
   <!-- show remove button -->
-  <form method="post" action="/films_directors/<%=@film_director.id%>/delete">
+  <form method="post" action="/films_directors/<%= link.id %>/delete">
   <input type= "submit" value="Remove" />
   </form>
 <% end %>
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! changed films from films_directors bellow -->
-<form method="post" action="/films">
+<form method="post" action="/films_directors">
   <!-- pass in films id (hidden) -->
   <input type="hidden" value="<%= @film.id %>" name="film_id" />
   <!-- print director label for dropdown -->

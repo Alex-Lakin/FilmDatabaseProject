@@ -11,7 +11,7 @@ end
 
 # delete film-director link
 post '/films_directors/:id/delete' do
-  f_d = Film_Director.find(params['id'])
+  f_d = Film_Director.find_id(params['id'])
   f_d.delete
-  redirect to '/films/all'
+  redirect back
 end
