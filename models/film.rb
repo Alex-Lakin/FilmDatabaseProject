@@ -25,7 +25,8 @@ class Film
 
 # read
   def self.all()
-    sql = "SELECT * FROM films"
+    sql = "SELECT * FROM films
+          ORDER BY title"
     result = SqlRunner.run(sql)
     return result.map{|film|Film.new(film)}
   end
@@ -42,7 +43,8 @@ class Film
     sql = "SELECT dir.* FROM directors dir
           INNER JOIN films_directors f_d
           ON f_d.director_id = dir.id
-          WHERE f_d.film_id = $1"
+          WHERE f_d.film_id = $1
+          ORDER BY name"
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |dir| Director.new(dir) }

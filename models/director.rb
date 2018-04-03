@@ -40,7 +40,8 @@ class Director
     sql = "SELECT f.* FROM films f
           INNER JOIN films_directors f_d
           ON f_d.film_id = f.id
-          WHERE f_d.director_id = $1"
+          WHERE f_d.director_id = $1
+          ORDER BY YEAR"
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |film| Film.new(film) }
