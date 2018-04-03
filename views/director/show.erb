@@ -1,13 +1,21 @@
+<!-- print directors name -->
 <h1><%= @director.name %></h1>
-
+<!-- link to edit director page -->
 <a href="/directors/<%= @director.id %>/edit"> Edit </a>
-
+<!-- print films heading -->
 <h3>Films:</h3>
-
+<!-- start film loop -->
 <% @director.get_films().each do |film| %>
-<h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+  <!-- prrint films name -->
+  <h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+  <!-- get film-director link id -->
+  <%link = Film_Director.find(film.id, @director.id)%>
+  <!-- show remove button -->
+  <form method="post" action="/films_directors/<%= link.id %>/delete">
+  <input type= "submit" value="Remove" />
+  </form>
 <% end %>
-
+<!-- show delete button -->
 <form method="post" action="/directors/<%=@director.id%>/delete">
 <input type= "submit" value="Delete" />
 </form>
