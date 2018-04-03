@@ -11,6 +11,7 @@ class Director
     @name = options["name"]
   end
 
+# create
   def save()
     sql = "INSERT INTO directors (name)
           VALUES ($1)
@@ -20,6 +21,7 @@ class Director
     @id = result.first()["id"].to_i
   end
 
+# read
   def self.all()
     sql = "SELECT * FROM directors"
     result = SqlRunner.run(sql)
@@ -43,4 +45,22 @@ class Director
     result = SqlRunner.run(sql, values)
     return result.map { |film| Film.new(film) }
   end
+
+# update
+  def update()
+    sql = "UPDATE directors
+          SET name = $1
+          WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql,values)
+  end
+
+  # delete
+  def delete()
+    sql = "DELETE FROM directors
+          WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
+
 end

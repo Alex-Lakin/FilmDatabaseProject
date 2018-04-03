@@ -15,8 +15,29 @@ post '/directors' do
   redirect "/films/#{params['film_id']}"
 end
 
+# shows edit directors screen
+get "/directors/:id/edit" do
+  @director = Director.find(params[:id].to_i)
+  erb( :"director/edit" )
+end
+
+# updates with new edits
+post "/directors/:id" do
+  @director = Director.new(params)
+  @director.update
+  redirect to "/directors/#{@director.id}"
+  # redirect to "/films/all"
+end
+
 # shows all the films by a specific director
 get "/director/:id" do
   @director = Director.find(params["id"].to_i)
   erb( :"director/show" )
+end
+
+# delete director
+post '/directors/:id/delete' do
+  dir = Director.find(params['id'])
+  dir.delete
+  redirect to '/films/all'
 end

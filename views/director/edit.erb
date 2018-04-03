@@ -1,0 +1,8 @@
+<h1>Edit Director</h1>
+
+<form method="post" action="/directors/<%=@director.id%>">
+  <label for="name">Name: </label>
+  <input id="name" type="text" name="name" value="<%=@director.name%>" />
+
+  <input type="submit" value="Add Changes">
+</form>

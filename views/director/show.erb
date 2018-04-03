@@ -1,7 +1,13 @@
 <h1><%= @director.name %></h1>
 
+<a href="/directors/<%= @director.id %>/edit"> Edit </a>
+
 <h3>Films:</h3>
 
 <% @director.get_films().each do |film| %>
 <h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
 <% end %>
+
+<form method="post" action="/directors/<%=@director.id%>/delete">
+<input type= "submit" value="Delete" />
+</form>
