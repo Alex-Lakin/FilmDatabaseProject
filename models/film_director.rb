@@ -19,4 +19,13 @@ class Film_Director
     result = SqlRunner.run(sql, values)
     @id = result.first()["id"].to_i
   end
+
+  # delete
+  def delete()
+    sql = "DELETE FROM films_directors
+          WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
+
 end

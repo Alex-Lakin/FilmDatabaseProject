@@ -36,8 +36,13 @@ end
 
 # shows 1 specific film
 get "/films/:id" do
+  # get particular film
   @film = Film.find(params["id"].to_i)
+  # grab all directors for add directors dropdown
   @director = Director.all()
+  # get film-director link id
+  
+  # go to films page
   erb( :"films/show" )
 end
 
