@@ -23,7 +23,8 @@ class Director
 
 # read
   def self.all()
-    sql = "SELECT * FROM directors"
+    sql = "SELECT * FROM directors
+          ORDER BY name"
     result = SqlRunner.run(sql)
     return result.map{ |dir| Director.new(dir)}
   end

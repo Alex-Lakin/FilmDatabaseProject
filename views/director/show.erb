@@ -7,7 +7,7 @@
 <!-- start film loop -->
 <% @director.get_films().each do |film| %>
   <!-- prrint films name -->
-  <h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+  <h4><a href="/films/<%= film.id %>"><%= film.title %></a> (<%= film.year %>) </h4>
   <!-- get film-director link id -->
   <%link = Film_Director.find(film.id, @director.id)%>
   <!-- show remove button -->

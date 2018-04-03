@@ -1,0 +1,21 @@
+body {
+  background: url('/images/background.jpeg');
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+  color: silver;
+}
+
+a:link {
+  color: silver;
+}
+a:visited {
+  color: silver;
+}
+a:hover {
+  color: grey;
+}
+a:active {
+  color: white;
+}

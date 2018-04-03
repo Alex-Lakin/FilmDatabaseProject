@@ -26,7 +26,7 @@ post "/directors/:id" do
   @director = Director.new(params)
   @director.update
   redirect to "/directors/#{@director.id}"
-  # redirect to "/films/all"
+  redirect to "/films/all"
 end
 
 # shows all the films by a specific director
