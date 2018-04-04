@@ -42,7 +42,7 @@ class Genre
           INNER JOIN films_genres f_g
           ON f_g.film_id = f.id
           WHERE f_g.genre_id = $1
-          ORDER BY genre"
+          ORDER BY title"
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |film| Film.new(film) }
