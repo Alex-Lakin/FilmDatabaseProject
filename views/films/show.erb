@@ -12,6 +12,20 @@
 
 
 
+<!-- show star rating -->
+<%if @film.rating == 1%>
+    <img src="../images/1star.png" alt="Terrible" class="stars"/>
+<%elsif @film.rating == 2%>
+    <img src="../images/2star.png" alt="Poor" class="stars"/>
+<%elsif @film.rating == 3%>
+    <img src="../images/3star.png" alt="Good" class="stars"/>
+<%elsif @film.rating == 4%>
+    <img src="../images/4star.png" alt="Great" class="stars"/>
+<%else%>
+    <img src="../images/5star.png" alt="Excellent" class="stars"/>
+<%end%>
+
+
 <!-- print directors heading -->
 <h3>Director(s):</h3>
 <!-- start directors loop -->
@@ -44,21 +58,6 @@
   <!-- add new director to above list button -->
   <input type="submit" value="Add Director">
 </form></h6>
-
-
-
-<!-- show star rating -->
-<%if @film.rating == 1%>
-    <img src="../images/1star.png" alt="Star Rating"/>
-<%elsif @film.rating == 2%>
-    <img src="../images/2star.pgn" alt="2 Star">
-<%elsif @film.rating == 3%>
-    <img src="../images/3star.pgn" alt="3 Star">
-<%elsif @film.rating == 4%>
-    <img src="../images/4star.pgn" alt="4 Star">
-<%else%>
-    <img src="../images/5star.pgn" alt="5 Star">
-<%end%>
 
 
 
