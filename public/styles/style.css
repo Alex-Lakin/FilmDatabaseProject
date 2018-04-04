@@ -50,6 +50,21 @@ a:active.navbut {
   top: 2px;
 }
 
-.filmedit {
-  display: inline;
+.same-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.film-edit {
+  align-self: center;
+  margin: 20px;
+  margin-top: 30px
+}
+
+.remove-button {
+  align-self: center;
+  margin: 10px;
+  margin-top: 25px
 }

@@ -6,14 +6,16 @@
 <h3>Films:</h3>
 <!-- start film loop -->
 <% @director.get_films().each do |film| %>
-  <!-- prrint films name -->
-  <h4><a href="/films/<%= film.id %>"><%= film.title %></a> (<%= film.year %>) </h4>
-  <!-- get film-director link id -->
-  <%link = Film_Director.find(film.id, @director.id)%>
-  <!-- show remove button -->
-  <form method="post" action="/films_directors/<%= link.id %>/delete">
-  <input type= "submit" value="Remove" />
-  </form>
+  <div class="same-row">
+    <!-- prrint films name -->
+    <h4><a href="/films/<%= film.id %>"><%= film.title %></a> (<%= film.year %>) </h4>
+    <!-- get film-director link id -->
+    <%link = Film_Director.find(film.id, @director.id)%>
+    <!-- show remove button -->
+    <form method="post" action="/films_directors/<%= link.id %>/delete">
+    <input type= "submit" value="Remove" class="remove-button" />
+    </form>
+  </div>
 <% end %>
 <!-- show delete button -->
 <form method="post" action="/director/<%=@director.id%>/delete">

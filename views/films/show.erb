@@ -1,21 +1,25 @@
 <!-- print films title -->
-<h1><%= @film.title %></h1>
-<!-- link to edit film page -->
-<a href="/films/<%= @film.id %>/edit" class="filmedit"> Edit </a>
+<div class="same-row">
+  <h1 ><%= @film.title %></h1>
+  <!-- link to edit film page -->
+  <a href="/films/<%= @film.id %>/edit" class="film-edit"> Edit </a>
+</div>
 <!-- print films year -->
 <h2><%= @film.year %></h2>
 <!-- print directors heading -->
 <h3>Director(s):</h3>
 <!-- start directors loop -->
 <% @film.get_directors().each do |dir| %>
-  <!-- print directors name -->
-  <h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
-  <!-- get film-director link id -->
-  <%link = Film_Director.find(@film.id, dir.id)%>
-  <!-- show remove button -->
-  <form method="post" action="/films_directors/<%= link.id %>/delete">
-  <input type= "submit" value="Remove"/>
-  </form>
+  <div class="same-row">
+    <!-- print directors name -->
+    <h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
+    <!-- get film-director link id -->
+    <%link = Film_Director.find(@film.id, dir.id)%>
+    <!-- show remove button -->
+    <form method="post" action="/films_directors/<%= link.id %>/delete">
+    <input type= "submit" value="Remove" class="remove-button"/>
+    </form>
+  </div>
 <% end %>
 <!-- add directors form -->
 <h6><form method="post" action="/films_directors">
