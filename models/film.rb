@@ -1,5 +1,6 @@
 require_relative( '../db/sql_runner' )
 require_relative( 'director' )
+require_relative( 'genre' )
 
 class Film
   attr_accessor :title, :year, :rating
@@ -54,6 +55,17 @@ class Film
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |dir| Director.new(dir) }
+  end
+
+  def get_genres()
+    sql = "SELECT gen.* FROM genres gen
+          INNER JOIN films_genres f_g
+          ON f_g.genre_id = gen.id
+          WHERE f_g.film_id = $1
+          ORDER BY genre"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |gen| Genre.new(gen) }
   end
 
   # update

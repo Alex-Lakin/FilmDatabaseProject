@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/film.rb' )
 require_relative( '../models/director.rb' )
+require_relative( '../models/genre.rb' )
 
 # shows a list of all films
 get "/films/all" do
@@ -40,8 +41,8 @@ get "/films/:id" do
   @film = Film.find(params["id"].to_i)
   # grab all directors for add directors dropdown
   @director = Director.all()
-  # get film-director link id
-
+  # grab all genres for dropdown
+  @genre = Genre.all()
   # go to films page
   erb( :"films/show" )
 end

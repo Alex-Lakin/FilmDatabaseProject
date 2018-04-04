@@ -13,7 +13,7 @@ class Genre
 
 # create
   def save()
-    sql = "INSERT INTO genre (name)
+    sql = "INSERT INTO genres (genre)
           VALUES ($1)
           RETURNING id"
     values = [@name]
@@ -23,14 +23,14 @@ class Genre
 
 # read
   def self.all()
-    sql = "SELECT * FROM genre
+    sql = "SELECT * FROM genres
           ORDER BY genre"
     result = SqlRunner.run(sql)
-    return result.map{ |gnere| Genre.new(genre)}
+    return result.map{ |gen| Genre.new(gen)}
   end
 
   def self.find(id)
-    sql = "SELECT * FROM genre
+    sql = "SELECT * FROM genres
           WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)

@@ -1,0 +1,11 @@
+<h1>Add new Genre</h1>
+
+<form method="post" action="/genre">
+
+  <input type="hidden" name="film_id" value="<%=@film_id%>">
+
+  <label for="genre">Genre: </label>
+  <input id="genre" type="text" name="genre"/>
+
+  <input type="submit" value="Add Genre">
+</form>
