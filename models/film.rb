@@ -9,8 +9,8 @@ class Film
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @title = options["title"]
-    @year = options["year"]
-    @rating = options["rating"]
+    @year = options["year"].to_i
+    @rating = options["rating"].to_i
   end
 
 # create

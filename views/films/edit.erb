@@ -1,19 +1,17 @@
 <h1>Edit Film</h1>
 
 <form method="post" action="/films/<%=@film.id%>">
-  <label for="title">Title: </label>
+  <label for="title"> Title: </label>
   <input id="title" type="text" name="title" value="<%=@film.title%>" />
 
-  <label for="year">Year: </label>
+  <label for="year"> Year: </label>
   <input id="year" type="text" name="year" value="<%=@film.year%>" />
 
-  <label for="rating">Rating:</label>
-  <select id="rating" name="rating" value="<%=@film.rating%>" >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
+  <label for="rating"> Rating: </label>
+  <select id="rating" name="rating"/>
+    <% for rating in [1,2,3,4,5]%>
+      <option value="<%= rating %>" <%= (@film.rating == rating ) ? "selected" : "" %>  ><%= rating %></option>
+    <% end %>
   </select>
 
   <input type="submit" value="Add Changes">

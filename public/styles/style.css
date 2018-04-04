@@ -19,3 +19,37 @@ a:hover {
 a:active {
   color: white;
 }
+
+.navbut {
+  padding: 10px;
+  margin: 5px;
+  border-style: solid;
+  border-color: grey;
+  text-decoration: none;
+  background-color: silver;
+  color: grey;
+}
+
+a:link.navbut {
+  color: grey;
+  opacity: 0.7;
+}
+a:visited.navbut {
+  color: grey;
+  opacity: 0.7;
+}
+a:hover.navbut {
+  color: grey;
+  opacity: 1;
+}
+a:active.navbut {
+  color: grey;
+  opacity: 0.7;
+  position: relative;
+  left: 2px;
+  top: 2px;
+}
+
+.filmedit {
+  display: inline;
+}
