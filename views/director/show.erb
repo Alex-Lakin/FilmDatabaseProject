@@ -1,7 +1,9 @@
-<!-- print directors name -->
-<h1><%= @director.name %></h1>
-<!-- link to edit director page -->
-<a href="/director/<%= @director.id %>/edit"> Edit </a>
+<div class="same-row">
+  <!-- print directors name -->
+  <h1><%= @director.name %></h1>
+  <!-- link to edit director page -->
+  <a href="/director/<%= @director.id %>/edit" class="film-edit"> Edit </a>
+</div>
 <!-- print films heading -->
 <h3>Films:</h3>
 <!-- start film loop -->

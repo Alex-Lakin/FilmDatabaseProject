@@ -1,8 +1,10 @@
-<!-- print genre name -->
-<h1><%= @genre.genre %></h1>
-<!-- link to edit genre page -->
-<a href="/genre/<%= @genre.id %>/edit"> Edit </a>
-<!-- print films heading -->
+<div class="same-row">
+  <!-- print genre name -->
+  <h1><%= @genre.genre %></h1>
+  <!-- link to edit genre page -->
+  <a href="/genre/<%= @genre.id %>/edit" class="film-edit"> Edit </a>
+  <!-- print films heading -->
+</div>
 <h3>Films:</h3>
 <!-- start film loop -->
 <% @genre.get_films().each do |film| %>

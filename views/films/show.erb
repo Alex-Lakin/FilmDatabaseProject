@@ -4,8 +4,14 @@
   <!-- link to edit film page -->
   <a href="/films/<%= @film.id %>/edit" class="film-edit"> Edit </a>
 </div>
+
+
+
 <!-- print films year -->
 <h2><%= @film.year %></h2>
+
+
+
 <!-- print directors heading -->
 <h3>Director(s):</h3>
 <!-- start directors loop -->
@@ -38,8 +44,24 @@
   <!-- add new director to above list button -->
   <input type="submit" value="Add Director">
 </form></h6>
-<!-- print films rating -->
-<h5><%= @film.rating %></h5>
+
+
+
+<!-- show star rating -->
+<%if @film.rating == 1%>
+    <img src="../images/1star.png" alt="Star Rating"/>
+<%elsif @film.rating == 2%>
+    <img src="../images/2star.pgn" alt="2 Star">
+<%elsif @film.rating == 3%>
+    <img src="../images/3star.pgn" alt="3 Star">
+<%elsif @film.rating == 4%>
+    <img src="../images/4star.pgn" alt="4 Star">
+<%else%>
+    <img src="../images/5star.pgn" alt="5 Star">
+<%end%>
+
+
+
 <!-- show delete button -->
 <form method="post" action="/films/<%=@film.id%>/delete">
 <input type= "submit" value="Delete" />
