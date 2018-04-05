@@ -9,10 +9,10 @@
 <!-- start film loop -->
 <% @series.get_films().each do |film| %>
   <div class="same-row">
-    <!-- prrint films name -->
+    <!-- print films name -->
     <h4><a href="/films/<%= film.id %>"><%= film.title %></a> (<%= film.year %>) </h4>
     <!-- get film-director link id -->
-    <%link = Film_series.find(film.id, @series.id)%>
+    <%link = Film_Series.find(film.id, @series.id)%>
     <!-- show remove button -->
     <form method="post" action="/films_series/<%= link.id %>/delete">
     <input type= "submit" value="Remove" class="remove-button" />

@@ -12,7 +12,7 @@ end
 post '/series' do
   ser = Series.new(params)
   ser.save
-  redirect "/series/#{params['series_id']}"
+  redirect "/films/#{params['film_id']}"
 end
 
 # shows edit seris screen
@@ -38,5 +38,5 @@ end
 post '/series/:id/delete' do
   ser = Series.find(params['id'])
   ser.delete
-  redirect to '/series/all'
+  redirect to '/films/all'
 end
