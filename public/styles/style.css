@@ -70,9 +70,21 @@ a:active.navbut {
 }
 
 .stars {
-    display: block;
-    max-width: 10%;
-    max-height: 10%;
-    width: auto;
-    height: auto;
+  display: block;
+  max-width: 35%;
+  max-height: 35%;
+  width: auto;
+  height: auto;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  column-count: 3;
+  float: left;
+  width: 40%;
+  column-rule-style: solid;
+  column-rule-color: green;
+  column-rule-width: 5px;
+  column-gap: normal;
 }

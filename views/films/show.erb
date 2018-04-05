@@ -6,96 +6,97 @@
 </div>
 
 
-
-<!-- print films year -->
-<h2><%= @film.year %></h2>
-
-
-
-<!-- show star rating -->
-<%if @film.rating == 1%>
-    <img src="../images/1star.png" alt="Terrible" class="stars"/>
-<%elsif @film.rating == 2%>
-    <img src="../images/2star.png" alt="Poor" class="stars"/>
-<%elsif @film.rating == 3%>
-    <img src="../images/3star.png" alt="Good" class="stars"/>
-<%elsif @film.rating == 4%>
-    <img src="../images/4star.png" alt="Great" class="stars"/>
-<%else%>
-    <img src="../images/5star.png" alt="Excellent" class="stars"/>
-<%end%>
+<div class="columns">
+  <!-- print films year -->
+  <h2><%= @film.year %></h2>
 
 
-<!-- print directors heading -->
-<h3>Director(s):</h3>
-<!-- start directors loop -->
-<% @film.get_directors().each do |dir| %>
-  <div class="same-row">
-    <!-- print directors name -->
-    <h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
-    <!-- get film-director link id -->
-    <%link = Film_Director.find(@film.id, dir.id)%>
-    <!-- show remove button -->
-    <form method="post" action="/films_directors/<%= link.id %>/delete">
-    <input type= "submit" value="Remove" class="remove-button"/>
-    </form>
-  </div>
-<% end %>
-<!-- add directors form -->
-<h6><form method="post" action="/films_directors">
-  <!-- pass in films id (hidden) -->
-  <input type="hidden" value="<%= @film.id %>" name="film_id" />
-  <!-- print director label for dropdown -->
-  <label for="director">Director:</label>
-  <select id="director" name="director_id">
-  <% @director.each do |dir| %>
-    <!-- show directors name in dropdown -->
-    <option value="<%= dir.id %>"> <%= dir.name %> </option>
+
+  <!-- show star rating -->
+  <%if @film.rating == 1%>
+      <img src="../images/1star.png" alt="Terrible" class="stars"/>
+  <%elsif @film.rating == 2%>
+      <img src="../images/2star.png" alt="Poor" class="stars"/>
+  <%elsif @film.rating == 3%>
+      <img src="../images/3star.png" alt="Good" class="stars"/>
+  <%elsif @film.rating == 4%>
+      <img src="../images/4star.png" alt="Great" class="stars"/>
+  <%else%>
+      <img src="../images/5star.png" alt="Excellent" class="stars"/>
+  <%end%>
+
+
+  <!-- print directors heading -->
+  <h3>Director(s):</h3>
+  <!-- start directors loop -->
+  <% @film.get_directors().each do |dir| %>
+    <div class="same-row">
+      <!-- print directors name -->
+      <h4><a href="/director/<%= dir.id %>"><%= dir.name %></a></h4>
+      <!-- get film-director link id -->
+      <%link = Film_Director.find(@film.id, dir.id)%>
+      <!-- show remove button -->
+      <form method="post" action="/films_directors/<%= link.id %>/delete">
+      <input type= "submit" value="Remove" class="remove-button"/>
+      </form>
+    </div>
   <% end %>
-  </select>
-  <!-- link to add new director page -->
-  <a href="/director/new?film_id=<%=@film.id%>"> Add New Director </a>
-  <!-- add new director to above list button -->
-  <input type="submit" value="Add Director">
-</form></h6>
+  <!-- add directors form -->
+  <h6><form method="post" action="/films_directors">
+    <!-- pass in films id (hidden) -->
+    <input type="hidden" value="<%= @film.id %>" name="film_id" />
+    <!-- print director label for dropdown -->
+    <label for="director">Director:</label>
+    <select id="director" name="director_id">
+    <% @director.each do |dir| %>
+      <!-- show directors name in dropdown -->
+      <option value="<%= dir.id %>"> <%= dir.name %> </option>
+    <% end %>
+    </select>
+    <!-- link to add new director page -->
+    <a href="/director/new?film_id=<%=@film.id%>"> Add New Director </a>
+    <!-- add new director to above list button -->
+    <input type="submit" value="Add Director">
+  </form></h6>
 
 
 
-<!-- show delete button -->
-<form method="post" action="/films/<%=@film.id%>/delete">
-<input type= "submit" value="Delete" />
-</form>
+  <!-- show delete button -->
+  <form method="post" action="/films/<%=@film.id%>/delete">
+  <input type= "submit" value="Delete" />
+  </form>
 
-
-
-<h3>Genre:</h3>
-<!-- start genre loop -->
-<% @film.get_genres().each do |gen| %>
-  <div class="same-row">
-    <!-- print genre -->
-    <h4><a href="/genre/<%= gen.id %>"><%= gen.genre %></a></h4>
-    <!-- get film-genre link id -->
-    <%link = Film_Genre.find(@film.id, gen.id)%>
-    <!-- show remove button -->
-    <form method="post" action="/films_genres/<%= link.id %>/delete">
-    <input type= "submit" value="Remove" class="remove-button"/>
-    </form>
-  </div>
-<% end %>
-<!-- add genre form -->
-<h6><form method="post" action="/films_genres">
-  <!-- pass in films id (hidden) -->
-  <input type="hidden" value="<%= @film.id %>" name="film_id" />
-  <!-- print genre label for dropdown -->
-  <label for="genre">Genre:</label>
-  <select id="genre" name="genre_id">
-  <% @genre.each do |gen| %>
-    <!-- show genre in dropdown -->
-    <option value="<%= gen.id %>"> <%= gen.genre %> </option>
+</div>
+<div class="columns">
+  <h3>Genre:</h3>
+  <!-- start genre loop -->
+  <% @film.get_genres().each do |gen| %>
+    <div class="same-row">
+      <!-- print genre -->
+      <h4><a href="/genre/<%= gen.id %>"><%= gen.genre %></a></h4>
+      <!-- get film-genre link id -->
+      <%link = Film_Genre.find(@film.id, gen.id)%>
+      <!-- show remove button -->
+      <form method="post" action="/films_genres/<%= link.id %>/delete">
+      <input type= "submit" value="Remove" class="remove-button"/>
+      </form>
+    </div>
   <% end %>
-  </select>
-  <!-- link to add new genre page (takes film id with it so it can return) -->
-  <a href="/genre/new?film_id=<%=@film.id%>"> Add New Genre </a>
-  <!-- add new director to above list button -->
-  <input type="submit" value="Add Genre">
-</form></h6>
+  <!-- add genre form -->
+  <h6><form method="post" action="/films_genres">
+    <!-- pass in films id (hidden) -->
+    <input type="hidden" value="<%= @film.id %>" name="film_id" />
+    <!-- print genre label for dropdown -->
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre_id">
+    <% @genre.each do |gen| %>
+      <!-- show genre in dropdown -->
+      <option value="<%= gen.id %>"> <%= gen.genre %> </option>
+    <% end %>
+    </select>
+    <!-- link to add new genre page (takes film id with it so it can return) -->
+    <a href="/genre/new?film_id=<%=@film.id%>"> Add New Genre </a>
+    <!-- add new director to above list button -->
+    <input type="submit" value="Add Genre">
+  </form></h6>
+</div>
