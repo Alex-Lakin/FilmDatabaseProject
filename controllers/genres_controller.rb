@@ -25,7 +25,7 @@ end
 post "/genre/:id" do
   gen = Genre.new(params)
   gen.update
-  redirect to "/genre/#{genre.id}"
+  redirect to "/genre/#{gen.id}"
 end
 
 # shows all the films belonging to a genre
