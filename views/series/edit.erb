@@ -1,0 +1,8 @@
+<h1>Edit Series</h1>
+
+<form method="post" action="/series/<%=@series.id%>">
+  <label for="name">Name: </label>
+  <input id="name" type="text" name="name" value="<%=@series.name%>" />
+
+  <input type="submit" value="Add Changes">
+</form>

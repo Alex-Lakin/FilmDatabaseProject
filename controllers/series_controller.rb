@@ -4,7 +4,7 @@ require_relative( '../models/series.rb' )
 
 # shows add new series screen
 get "/series/new" do
-  @series_id = params['series_id']
+  @film_id = params['film_id']
   erb( :"series/new" )
 end
 

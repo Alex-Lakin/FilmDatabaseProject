@@ -1,0 +1,25 @@
+<div class="same-row">
+  <!-- print series name -->
+  <h1><%= @series.name %></h1>
+  <!-- link to edit series page -->
+  <a href="/series/<%= @series.id %>/edit" class="film-edit"> Edit </a>
+</div>
+<!-- print films heading -->
+<h3>Films:</h3>
+<!-- start film loop -->
+<% @series.get_films().each do |film| %>
+  <div class="same-row">
+    <!-- prrint films name -->
+    <h4><a href="/films/<%= film.id %>"><%= film.title %></a> (<%= film.year %>) </h4>
+    <!-- get film-director link id -->
+    <%link = Film_series.find(film.id, @series.id)%>
+    <!-- show remove button -->
+    <form method="post" action="/films_series/<%= link.id %>/delete">
+    <input type= "submit" value="Remove" class="remove-button" />
+    </form>
+  </div>
+<% end %>
+<!-- show delete button -->
+<form method="post" action="/series/<%=@series.id%>/delete">
+<input type= "submit" value="Delete" />
+</form>

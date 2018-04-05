@@ -68,6 +68,7 @@
 
 </div>
 <div class="columns">
+  <!-- print genre heading -->
   <h3>Genre:</h3>
   <!-- start genre loop -->
   <% @film.get_genres().each do |gen| %>
@@ -96,7 +97,40 @@
     </select>
     <!-- link to add new genre page (takes film id with it so it can return) -->
     <a href="/genre/new?film_id=<%=@film.id%>"> Add New Genre </a>
-    <!-- add new director to above list button -->
+    <!-- add new genre to above list button -->
     <input type="submit" value="Add Genre">
+  </form></h6>
+
+  <!-- print series heading -->
+  <h3>Series:</h3>
+  <!-- start series loop -->
+  <% @film.get_series().each do |ser| %>
+    <div class="same-row">
+      <!-- print series name -->
+      <h4><a href="/series/<%= ser.id %>"><%= ser.name %></a></h4>
+      <!-- get film-series link id -->
+      <%link = Film_Series.find(@film.id, ser.id)%>
+      <!-- show remove button -->
+      <form method="post" action="/films_series/<%= link.id %>/delete">
+      <input type= "submit" value="Remove" class="remove-button"/>
+      </form>
+    </div>
+  <% end %>
+  <!-- add series form -->
+  <h6><form method="post" action="/films_series">
+    <!-- pass in films id (hidden) -->
+    <input type="hidden" value="<%= @film.id %>" name="film_id" />
+    <!-- print series label for dropdown -->
+    <label for="series">Series:</label>
+    <select id="series" name="series_id">
+    <% @series.each do |ser| %>
+      <!-- show series name in dropdown -->
+      <option value="<%= ser.id %>"> <%= ser.name %> </option>
+    <% end %>
+    </select>
+    <!-- link to add new series page -->
+    <a href="/series/new?film_id=<%=@film.id%>"> Add New Series </a>
+    <!-- add new series to above list button -->
+    <input type="submit" value="Add Series">
   </form></h6>
 </div>

@@ -1,0 +1,11 @@
+<h1>Add new Series</h1>
+
+<form method="post" action="/series">
+
+  <input type="hidden" name="film_id" value="<%=@film_id%>">
+
+  <label for="name">Name: </label>
+  <input id="name" type="text" name="name"/>
+
+  <input type="submit" value="Add Series">
+</form>
