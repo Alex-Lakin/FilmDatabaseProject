@@ -38,11 +38,16 @@ class Genre
   end
 
   def get_films()
-    sql = "SELECT f.* FROM films f
+    sql = "SELECT f.id, title, year, CASE
+          WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
+          WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)
+          WHEN(LEFT(title,4)) = 'The ' THEN SUBSTRING(title FROM 5)
+          ELSE title
+          END AS title2 FROM films f
           INNER JOIN films_genres f_g
           ON f_g.film_id = f.id
           WHERE f_g.genre_id = $1
-          ORDER BY title"
+          ORDER BY title2"
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |film| Film.new(film) }
