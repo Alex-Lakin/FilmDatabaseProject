@@ -14,15 +14,15 @@
 
   <!-- show star rating -->
   <%if @film.rating == 1%>
-      <img src="../images/1star.png" alt="Terrible" class="stars"/>
+      <a href="/films/rating/<%= @film.rating %>"> <img src="../images/1star.png" alt="Terrible" class="stars"/> </a>
   <%elsif @film.rating == 2%>
-      <img src="../images/2star.png" alt="Poor" class="stars"/>
+      <a href="/films/rating/<%= @film.rating %>"> <img src="../images/2star.png" alt="Poor" class="stars"/> </a>
   <%elsif @film.rating == 3%>
-      <img src="../images/3star.png" alt="Good" class="stars"/>
+      <a href="/films/rating/<%= @film.rating %>"> <img src="../images/3star.png" alt="Good" class="stars"/> </a>
   <%elsif @film.rating == 4%>
-      <img src="../images/4star.png" alt="Great" class="stars"/>
+      <a href="/films/rating/<%= @film.rating %>"> <img src="../images/4star.png" alt="Great" class="stars"/> </a>
   <%else%>
-      <img src="../images/5star.png" alt="Excellent" class="stars"/>
+      <a href="/films/rating/<%= @film.rating %>"> <img src="../images/5star.png" alt="Excellent" class="stars"/> </a>
   <%end%>
 
 

@@ -77,6 +77,15 @@ a:active.navbut {
   height: auto;
 }
 
+.headstars {
+  display: block;
+  max-width: 20%;
+  max-height: 20%;
+  width: auto;
+  height: auto;
+  margin-top: 25px
+}
+
 .columns {
   display: flex;
   flex-direction: column;

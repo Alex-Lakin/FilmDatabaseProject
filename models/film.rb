@@ -48,7 +48,7 @@ class Film
   end
 
   def self.by_year(yr)
-    sql = "SELECT id, title, year, rating,
+    sql = "SELECT id, title, year,
           CASE
 	          WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
 	          WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)
@@ -63,7 +63,7 @@ class Film
   end
 
   def self.by_rating(rtng)
-    sql = "SELECT id, title, year, rating,
+    sql = "SELECT id, title, rating,
           CASE
             WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
             WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)

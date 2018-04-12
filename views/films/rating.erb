@@ -1,0 +1,19 @@
+<!-- print rating -->
+<%if @films.first.rating == 1%>
+    <img src="../../images/1star.png" alt="Terrible" class="headstars"/>
+<%elsif @films.first.rating == 2%>
+    <img src="../../images/2star.png" alt="Poor" class="headstars"/>
+<%elsif @films.first.rating == 3%>
+    <img src="../../images/3star.png" alt="Good" class="headstars"/>
+<%elsif @films.first.rating == 4%>
+    <img src="../../images/4star.png" alt="Great" class="headstars"/>
+<%else%>
+    <img src="../../images/5star.png" alt="Excellent" class="headstars"/>
+<%end%>
+<!-- print films heading -->
+<h3>Films:</h3>
+<!-- start film loop -->
+<% @films.each do |film| %>
+  <!-- print films name -->
+  <h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+<% end %>

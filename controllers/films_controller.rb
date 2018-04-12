@@ -20,7 +20,7 @@ end
 
 # shows a list of films by rating
 get "/films/rating/:rating" do
-  @films = Film.by_rating()
+  @films = Film.by_rating(params[:rating].to_i)
   erb( :"films/rating" )
 end
 
