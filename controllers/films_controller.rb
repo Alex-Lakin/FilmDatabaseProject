@@ -11,6 +11,19 @@ get "/films/all" do
   erb( :"films/all" )
 end
 
+# shows a list of films by year
+get "/films/year/:year" do
+  @films = Film.by_year(params[:year].to_i)
+  p @films
+  erb( :"films/year" )
+end
+
+# shows a list of films by rating
+get "/films/rating/:rating" do
+  @films = Film.by_rating()
+  erb( :"films/rating" )
+end
+
 # shows add new film screen
 get "/films/new" do
   erb( :"films/new" )

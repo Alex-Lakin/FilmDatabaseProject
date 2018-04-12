@@ -10,7 +10,7 @@
   <tr>
     <td><a href="/films/<%= film.id %>"><%= film.title %></a></td>
     <td>|</td>
-    <td><%= film.year %></td>
+    <td><a href="/films/year/<%= film.year %>"> <%= film.year %> </a></td>
   </tr>
   <% end %>
 </table>

@@ -1,0 +1,9 @@
+<!-- print year -->
+<h1><%= @films.first.year %></h1>
+<!-- print films heading -->
+<h3>Films:</h3>
+<!-- start film loop -->
+<% @films.each do |film| %>
+  <!-- print films name -->
+  <h4><a href="/films/<%= film.id %>"><%= film.title %></a></h4>
+<% end %>

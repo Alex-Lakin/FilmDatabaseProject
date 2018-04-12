@@ -47,6 +47,36 @@ class Film
     return Film.new(result.first)
   end
 
+  def self.by_year(yr)
+    sql = "SELECT id, title, year, rating,
+          CASE
+	          WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
+	          WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)
+	          WHEN(LEFT(title,4)) = 'The ' THEN SUBSTRING(title FROM 5)
+	          ELSE title
+	        END AS title2
+          FROM films WHERE year = ($1)
+          ORDER BY title2"
+    values = [yr]
+    result = SqlRunner.run(sql,values)
+    return result.map{|film|Film.new(film)}
+  end
+
+  def self.by_rating(rtng)
+    sql = "SELECT id, title, year, rating,
+          CASE
+            WHEN(LEFT(title,2)) = 'A ' THEN SUBSTRING(title FROM 3)
+            WHEN(LEFT(title,3)) = 'An ' THEN SUBSTRING(title FROM 4)
+            WHEN(LEFT(title,4)) = 'The ' THEN SUBSTRING(title FROM 5)
+            ELSE title
+          END AS title2
+          FROM films WHERE rating = ($1)
+          ORDER BY title2"
+      values = [rtng]
+      result = SqlRunner.run(sql,values)
+    return result.map{|film|Film.new(film)}
+  end
+
   def get_directors()
     sql = "SELECT dir.* FROM directors dir
           INNER JOIN films_directors f_d

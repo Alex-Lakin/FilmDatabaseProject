@@ -25,7 +25,7 @@ end
 post "/series/:id" do
   ser = Series.new(params)
   ser.update
-  redirect to "/series/#{series.id}"
+  redirect to "/series/#{ser.id}"
 end
 
 # shows all the films in a franchise
