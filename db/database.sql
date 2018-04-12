@@ -11,7 +11,8 @@ CREATE TABLE films(
   id SERIAL8 PRIMARY KEY,
   title VARCHAR(225),
   year INT8,
-  rating INT2
+  rating INT2,
+  imageurl VARCHAR(225)
 );
 
 CREATE TABLE directors(

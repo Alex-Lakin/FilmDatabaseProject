@@ -1,3 +1,5 @@
+
+
 <!-- print films title -->
 <div class="same-row">
   <h1 ><%= @film.title %></h1>
@@ -68,9 +70,11 @@
 
 </div>
 <div class="columns">
+  <div class="columns2">
   <!-- print genre heading -->
   <h3>Genre:</h3>
   <!-- start genre loop -->
+  <div class="inline">
   <% @film.get_genres().each do |gen| %>
     <div class="same-row">
       <!-- print genre -->
@@ -83,6 +87,7 @@
       </form>
     </div>
   <% end %>
+</div>
   <!-- add genre form -->
   <h6><form method="post" action="/films_genres">
     <!-- pass in films id (hidden) -->
@@ -104,6 +109,7 @@
   <!-- print series heading -->
   <h3>Series:</h3>
   <!-- start series loop -->
+  <div class="inline">
   <% @film.get_series().each do |ser| %>
     <div class="same-row">
       <!-- print series name -->
@@ -116,6 +122,7 @@
       </form>
     </div>
   <% end %>
+  </div>
   <!-- add series form -->
   <h6><form method="post" action="/films_series">
     <!-- pass in films id (hidden) -->
@@ -133,4 +140,9 @@
     <!-- add new series to above list button -->
     <input type="submit" value="Add Series">
   </form></h6>
+</div>
+</div>
+
+<div class="columns">
+<img src="<%=@film.imageurl%>" alt="POSTER" class="poster"/>
 </div>

@@ -4,7 +4,7 @@ require_relative( 'genre' )
 require_relative( 'series' )
 
 class Film
-  attr_accessor :title, :year, :rating
+  attr_accessor :title, :year, :rating, :imageurl
 
   attr_reader :id
 
@@ -13,14 +13,15 @@ class Film
     @title = options["title"]
     @year = options["year"].to_i
     @rating = options["rating"].to_i
+    @imageurl = options["imageurl"]
   end
 
 # create
   def save()
-    sql = "INSERT INTO films (title, year, rating)
-          VALUES ($1, $2, $3)
+    sql = "INSERT INTO films (title, year, rating, imageurl)
+          VALUES ($1, $2, $3, $4)
           RETURNING id"
-    values = [@title, @year, @rating]
+    values = [@title, @year, @rating, @imageurl]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
@@ -113,9 +114,9 @@ class Film
   # update
   def update()
     sql = "UPDATE films
-          SET (title,year,rating) = ($1,$2,$3)
-          WHERE id = $4"
-    values = [@title, @year, @rating,@id]
+          SET (title,year,rating,imageurl) = ($1,$2,$3,$4)
+          WHERE id = $5"
+    values = [@title, @year, @rating, @imageurl,@id]
     SqlRunner.run(sql,values)
   end
 
