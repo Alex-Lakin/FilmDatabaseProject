@@ -52,6 +52,7 @@ a:active.navbut {
 
 .same-row {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
@@ -88,19 +89,16 @@ a:active.navbut {
 
 .columns {
   display: flex;
-  flex-direction: column;
-  column-count: 3;
-  float: left;
-  width: 40%;
-  column-rule-style: solid;
-  column-rule-color: green;
-  column-rule-width: 5px;
-  column-gap: normal;
 }
 
-.columns2 {
-  width: 80%;
+.firstcolumn {
+  width: 40%;
 }
+
+.secondcolumn {
+  width: 30%;
+}
+
 
 .inline {
   flex-wrap: wrap;
@@ -111,7 +109,18 @@ a:active.navbut {
 }
 
 .poster {
-  max-width: 20%;
+  height: auto;
+  max-width: 300px;
+}
+
+.posterbox {
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  max-width: 30%
+}
+
+.contents{
+  display: flex;
 }
 
 div {
