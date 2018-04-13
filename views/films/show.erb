@@ -77,18 +77,18 @@
   <h3>Genre:</h3>
   <!-- start genre loop -->
   <div class="inline">
-  <% @film.get_genres().each do |gen| %>
-    <div class="same-row">
-      <!-- print genre -->
-      <h4><a href="/genre/<%= gen.id %>"><%= gen.genre %></a></h4>
-      <!-- get film-genre link id -->
-      <%link = Film_Genre.find(@film.id, gen.id)%>
-      <!-- show remove button -->
-      <form method="post" action="/films_genres/<%= link.id %>/delete">
-      <input type= "submit" value="Remove" class="remove-button"/>
-      </form>
-    </div>
-  <% end %>
+    <% @film.get_genres().each do |gen| %>
+      <div class="same-row">
+        <!-- print genre -->
+        <h4><a href="/genre/<%= gen.id %>"><%= gen.genre %></a></h4>
+        <!-- get film-genre link id -->
+        <%link = Film_Genre.find(@film.id, gen.id)%>
+        <!-- show remove button -->
+        <form method="post" action="/films_genres/<%= link.id %>/delete">
+        <input type= "submit" value="Remove" class="remove-button"/>
+        </form>
+      </div>
+    <% end %>
   </div>
   <!-- add genre form -->
   <h6><form method="post" action="/films_genres">
@@ -146,11 +146,9 @@
   </div>
   <!-- end of 2nd column -->
 
-  <class="thirdcolumn">
+  <div class="thirdcolumn">
 
-  <div class="posterbox">
     <img src="<%=@film.imageurl%>" alt="POSTER" class="poster"/>
-  </div>
 
   </div>
 <!-- end of 3rd column -->
