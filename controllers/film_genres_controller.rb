@@ -1,5 +1,5 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' )
+require( 'sinatra/contrib/all' )if development?
 require_relative( '../models/film_genre.rb' )
 
 # posts film-genre link
